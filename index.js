@@ -43,9 +43,6 @@ module.exports = class InputValidation {
 
   /* set invalid status for certain key */
   setInvalid(schemaKey, errorKey, value = false) {
-    if (this.validatedObj.fields[schemaKey] === undefined)
-      this.validatedObj.fields[schemaKey] = {};
-
     this.validatedObj.fields[schemaKey][errorKey] = value;
     this.validatedObj.fields[schemaKey].status = false;
     this.validatedObj.status = false;
@@ -54,8 +51,6 @@ module.exports = class InputValidation {
 
   /* set valid for certain key */
   setValid(schemaKey, validKey, value = true) {
-    if (this.validatedObj.fields[schemaKey] === undefined)
-      this.validatedObj.fields[schemaKey] = {};
     this.validatedObj.fields[schemaKey][validKey] = value;
     if (this.validatedObj.fields[schemaKey].status === undefined)
       this.validatedObj.fields[schemaKey].status = true;
